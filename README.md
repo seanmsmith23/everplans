@@ -7,11 +7,13 @@ This README will outline the setup and thought processes behind my solution for 
 
 Setup:
 
+* ruby version 2.1.1
 * run `bundle install`
 * run `rake db:create`
 * run `rake db:migrate`
 * run `rake db:seed`
 * start your server with `rails s`
+* tests can be run by entering `rspec`
 
 Outline:
 
