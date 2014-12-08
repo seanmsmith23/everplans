@@ -1,1 +1,15 @@
-<h1>Create New Questionnaire</h1>
+<h1 class="cntr-txt">Create New Questionnaire</h1>
+
+<div class="six-wide shift-three">
+  <% if @questionnaire.errors.any? %>
+    <%@questionnaire.errors.full_messages.each do |msg| %>
+      <p class="error-msg"><%= msg %></p>
+    <% end %>
+  <% end %>
+  <%= form_for @questionnaire do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit %>
+  <% end %>
+</div>
