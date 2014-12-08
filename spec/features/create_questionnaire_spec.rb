@@ -18,7 +18,7 @@ feature "Questionnaires" do
     fill_in "questionnaire[name]", with: "Feedback"
     click_button "Create Questionnaire"
 
-    expect(page).to have_content("Questionnaire created successfully!")
+    expect(page).to have_content(questionnaire_success)
 
     visit new_questionnaire_path
 
@@ -26,5 +26,20 @@ feature "Questionnaires" do
     click_button "Create Questionnaire"
 
     expect(page).to have_content("Name has already been taken")
+  end
+
+  scenario "User can dynamically add questions to questionnaire", js: true do
+    visit new_questionnaire_path
+
+    fill_in "questionnaire[name]", with: "Feedback"
+    fill_in question_field(0), with: "First question?"
+
+    click_link "Add Question"
+
+    fill_in question_field(1), with: "Second question?"
+
+    click_button "Create Questionnaire"
+
+    expect(page).to have_content(questionnaire_success)
   end
 end

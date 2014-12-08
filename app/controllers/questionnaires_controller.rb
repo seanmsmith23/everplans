@@ -5,11 +5,10 @@ class QuestionnairesController < ApplicationController
 
   def new
     @questionnaire = Questionnaire.new
-    2.times { @questionnaire.questions.build }
+    1.times { @questionnaire.questions.build }
   end
 
   def create
-    # byebug
     @questionnaire = Questionnaire.new(allowed_params)
     if @questionnaire.save
       redirect_to root_path, notice: "Questionnaire created successfully!"
