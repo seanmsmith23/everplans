@@ -19,6 +19,19 @@
 @import "errors";
 @import "flashes";
 @import "questionnaires";
+@import "responses";
+
+#content{
+  padding-top: 1%;
+}
+
+.nav-bar {
+  padding-top: 3%;
+}
+
+body{
+  background-color: lightblue;
+}
 
 .button-link {
   @include button;
@@ -29,12 +42,19 @@
   text-align: center;
 }
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .row {
   @include row();
 }
 
 .full-width {
   @include outer-container;
+  background-color: white;
+  height: 100vw;
 }
 
 .one-wide {

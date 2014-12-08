@@ -42,4 +42,23 @@ feature "Questionnaires" do
 
     expect(page).to have_content(questionnaire_success)
   end
+
+  scenario "It should disable the button unless all fields are filled", js: true do
+    visit new_questionnaire_path
+
+    expect(page).to_not have_button("Create Questionnaire")
+
+    fill_in "questionnaire[name]", with: "Something"
+    fill_in question_field(0), with: "Something Else"
+
+    expect(page).to have_button("Create Questionnaire")
+
+    click_link("Add Question")
+
+    expect(page).to_not have_button("Create Questionnaire")
+
+    fill_in question_field(1), with: "Second Thing"
+
+    expect(page).to have_button("Create Questionnaire")
+  end
 end

@@ -1,0 +1,32 @@
+.response-container{
+  padding-top: 2%;
+
+  .questionnaire-name{
+    font-size: 30px;
+    padding-left: 0;
+  }
+
+  .question-name{
+    font-size: 21px;
+    padding-left: 2%;
+  }
+
+  .response{
+    padding-left: 4%;
+
+    .response-name{
+      padding-left: 2%;
+      font-size: 18px;
+    }
+
+    .response-answer{
+      padding-left: 4%;
+      font-size: 18px;
+    }
+  }
+
+}
+
+.answer-input{
+  height: 100px;
+}

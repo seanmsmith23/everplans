@@ -1,0 +1,25 @@
+<h1 class="cntr-txt">Responses</h1>
+
+<% @questionnaires.each do |questionnaire| %>
+  <div class="response-container eight-wide shift-two">
+    <div class="questionnaire-name">
+      <%= questionnaire.name %>
+    </div>
+    <% questionnaire.questions.each_with_index do |question, index| %>
+      <div class="question-name">
+        Q<%= index + 1 %>: <%= question.name %>
+      </div>
+      <div class="response">
+        <% question.responses.each do |response| %>
+          <div class="response-name">
+            <%= response.name %>
+            on <%= response.created_at.strftime("%A, %b %d") %>:
+          </div>
+          <div class="response-answer">
+            "<%= response.answer %>"
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

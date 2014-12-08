@@ -1,12 +1,14 @@
 <h1 class="cntr-txt"><%= @questionnaire.name %></h1>
 
-<form action="/responses" method="post">
-  <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name">
-  <% @questionnaire.questions.each do |question| %>
-    <label for="question_<%= question.id %>"><%= question.name %></label>
-    <input type="text" id="question_<%= question.id %>" name="responses[<%= question.id %>]">
-  <% end %>
-  <button type="submit">Submit Response</button>
-</form>
+<div class="eight-wide shift-two">
+  <form action="/responses" method="post">
+    <%= hidden_field_tag(request_forgery_protection_token.to_s, form_authenticity_token) %>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+    <% @questionnaire.questions.each do |question| %>
+      <label for="question_<%= question.id %>"><%= question.name %></label>
+      <input type="text" id="question_<%= question.id %>" name="responses[<%= question.id %>]" class="answer-input">
+    <% end %>
+    <input type="submit" value="Submit Response">
+  </form>
+</div>

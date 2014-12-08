@@ -13,13 +13,13 @@
 
     <div class="questions">
       <%= f.fields_for :questions do |question_fields| %>
-        <p>Question</p>
+        <%= question_fields.label :name, "Question 1" %>
         <%= question_fields.text_field :name %>
       <% end %>
     </div>
 
     <div class="add-question">
-      <%= link_to "Add Question", class: "add-question" %>
+      <%= link_to "Add Question"%>
     </div>
     <br>
     <%= f.submit %>

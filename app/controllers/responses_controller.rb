@@ -1,4 +1,9 @@
 class ResponsesController < ApplicationController
+
+  def index
+    @questionnaires = Questionnaire.all
+  end
+
   def create
     name = params[:name]
     create_responses(name)
