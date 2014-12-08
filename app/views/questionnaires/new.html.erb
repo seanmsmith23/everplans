@@ -6,9 +6,15 @@
       <p class="error-msg"><%= msg %></p>
     <% end %>
   <% end %>
+
   <%= form_for @questionnaire do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
+
+    <%= f.fields_for :questions do |question_fields| %>
+      <p>Question</p>
+      <%= question_fields.text_field :name %>
+    <% end %>
 
     <%= f.submit %>
   <% end %>

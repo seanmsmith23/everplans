@@ -5,9 +5,11 @@ class QuestionnairesController < ApplicationController
 
   def new
     @questionnaire = Questionnaire.new
+    2.times { @questionnaire.questions.build }
   end
 
   def create
+    # byebug
     @questionnaire = Questionnaire.new(allowed_params)
     if @questionnaire.save
       redirect_to root_path, notice: "Questionnaire created successfully!"
@@ -19,6 +21,9 @@ class QuestionnairesController < ApplicationController
   private
 
   def allowed_params
-    params.require(:questionnaire).permit(:name)
+    {
+      name: params[:questionnaire][:name],
+      questions_attributes: params[:questionnaire][:questions_attributes]
+    }
   end
 end
