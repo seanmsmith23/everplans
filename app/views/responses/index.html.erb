@@ -7,7 +7,8 @@
     </div>
     <% questionnaire.questions.each_with_index do |question, index| %>
       <div class="question-name">
-        Q<%= index + 1 %>: <%= question.name %>
+        Q<%= index + 1 %>: <%= question.name %><br>
+        Description: '<%= question.label %>'
       </div>
       <div class="response">
         <% question.responses.each do |response| %>
