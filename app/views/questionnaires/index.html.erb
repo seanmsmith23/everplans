@@ -1,1 +1,14 @@
 <%= link_to "New Questionnaire", new_questionnaire_path, class: "button-link" %>
+
+<div class="questionnaire-container">
+
+  <h1>Existing Questionnaires</h1>
+
+  <% @questionnaires.each do |questionnaire| %>
+    <div class="questionnaire-name">
+      <%= link_to questionnaire.name, questionnaire_path(questionnaire) %>
+    </div>
+    <%= link_to "View Responses" %>
+  <% end %>
+
+</div>

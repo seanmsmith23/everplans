@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
   def index
-
+    @questionnaires = Questionnaire.all
   end
 
   def new
@@ -15,6 +15,10 @@ class QuestionnairesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @questionnaire = Questionnaire.find(params[:id])
   end
 
   private

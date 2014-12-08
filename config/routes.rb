@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "questionnaires#index"
 
-  resources :questionnaires, only: [:create, :new]
+  resources :questionnaires, only: [:create, :new, :show]
+  resources :responses, only: [:create]
 end
