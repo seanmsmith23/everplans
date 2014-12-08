@@ -15,6 +15,8 @@
       <%= f.fields_for :questions do |question_fields| %>
         <%= question_fields.label :name, "Question 1" %>
         <%= question_fields.text_field :name %>
+        <%= question_fields.label :label, "Description" %>
+        <%= question_fields.text_field :label %>
       <% end %>
     </div>
 

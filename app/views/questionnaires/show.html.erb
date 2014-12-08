@@ -7,6 +7,7 @@
     <input type="text" id="name" name="name">
     <% @questionnaire.questions.each do |question| %>
       <label for="question_<%= question.id %>"><%= question.name %></label>
+      <p><%= question.label %></p>
       <input type="text" id="question_<%= question.id %>" name="responses[<%= question.id %>]" class="answer-input">
     <% end %>
     <input type="submit" value="Submit Response">

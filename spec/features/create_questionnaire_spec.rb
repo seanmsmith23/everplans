@@ -33,10 +33,13 @@ feature "Questionnaires" do
 
     fill_in "questionnaire[name]", with: "Feedback"
     fill_in question_field(0), with: "First question?"
+    fill_in description_field(0), with: "First decrip"
 
     click_link "Add Question"
 
     fill_in question_field(1), with: "Second question?"
+    fill_in description_field(1), with: "Second decrip"
+
 
     click_button "Create Questionnaire"
 
@@ -50,6 +53,7 @@ feature "Questionnaires" do
 
     fill_in "questionnaire[name]", with: "Something"
     fill_in question_field(0), with: "Something Else"
+    fill_in description_field(0), with: "First decrip"
 
     expect(page).to have_button("Create Questionnaire")
 
@@ -58,6 +62,7 @@ feature "Questionnaires" do
     expect(page).to_not have_button("Create Questionnaire")
 
     fill_in question_field(1), with: "Second Thing"
+    fill_in description_field(1), with: "Second decrip"
 
     expect(page).to have_button("Create Questionnaire")
   end

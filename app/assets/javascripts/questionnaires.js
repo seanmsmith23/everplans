@@ -51,7 +51,10 @@ $(document).ready(function(){
     var label = '<label for="questionnaire_questions_attributes_'+ questionNum + '_name">Question ' + (questionNum + 1) + ' </label>';
     var input = '<input id="questionnaire_questions_attributes_' + questionNum + '_name" name="questionnaire[questions_attributes][' + questionNum + '][name]" type="text">';
 
-    return label + input
+    var descrip_label = '<label for="questionnaire_questions_attributes_'+ questionNum + '_label">Description</label>';
+    var descrip_input = '<input id="questionnaire_questions_attributes_' + questionNum + '_label" name="questionnaire[questions_attributes][' + questionNum + '][label]" type="text">';
+
+    return label + input + descrip_label + descrip_input
   };
 
   var updateQuestionCount = function(newCount){
